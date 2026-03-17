@@ -1,0 +1,125 @@
+# File with public sequences annotated by Pango lineage via UShER
+usher_metadata: https://hgdownload.soe.ucsc.edu/goldenPath/wuhCor1/UShER_SARS-CoV-2/public-latest.metadata.tsv.gz
+
+# NCBI taxon ID for SARS-CoV-2
+taxon_id: 2697049
+
+# nextclade dataset for clade/lineage classification
+nextclade_dataset: "nextstrain/sars-cov-2/wuhan-hu-1/orfs"
+
+# Parameters for lineage haplotype analysis
+lineage_haplotypes:
+  # drop all sequences with a gap (-) at either end
+  drop_flanking_gaps: true
+  # drop all sequences with nextclade QC score > this
+  max_nextclade_qc_score: 100
+  # drop all sequences with more missing spike protein sites than this
+  max_n_missing_sites: 25
+  # drop any sequences with dates earlier than this
+  min_date: "2019-12"
+  # number of most recent months with data for recent discordant summary
+  n_recent_months: 6
+  # FASTA file with the reference spike protein sequence used to call
+  # substitutions and deletions from the position-wise consensus
+  reference_spike: data/Wuhan-Hu-1_spike.fa
+  # minimum fraction of informative sequences that must carry a non-consensus
+  # mutation for it to appear in the `minor_mutations` column of the haplotype output
+  minor_mutations_cutoff: 0.1
+  # pango lineage assignment sources; in case of ties in consensus assignment,
+  # lineages are prioritized in this order
+  pango_definitions:
+    - usher
+    - nextclade
+    - genbank
+
+# LANL consensus spike haplotypes per Pango lineage (relative to Wuhan-Hu-1).
+# The tar.gz contains SPIKE.short.all.Wuhan.txt with the most common form
+# (consensus) of each lineage plus its mutations relative to Wuhan-Hu-1.
+# See https://cov.lanl.gov for details.
+lanl_spike_haplotypes_url: "https://cov.lanl.gov/scratch/pipeline/pangocommonformsx/Wuhan/SPIKE.pcfx.Wuhan.tar.gz"
+
+# CovSpectrum (LAPIS) API endpoint for aggregated lineage counts by date.
+# Returns TSV with columns: date, pangoLineage, count.
+# This uses the open data source (GenBank/ENA/DDBJ sequences).
+# See https://lapis.cov-spectrum.org for documentation.
+covspectrum_aggregated_url: "https://lapis.cov-spectrum.org/open/v2/sample/aggregated?fields=date,pangoLineage&dataFormat=tsv"
+
+# Annotations to add to sequences in the final lineages file
+# Specify name of annotation, then it is added to all lineages
+# listed in TSV as "yes" or "no" depending on if listed in TSV.
+add_annotations:
+  in_library: data/library_lineages.tsv
+
+# Prefix assigned to auspice JSONs for trees; final files are "{tree_prefix}_{treename}.json"
+trees_prefix: auspice/SARS2-spike-pango
+
+# Trees to build on collapsed spike haplotypes. Keyed by tree name, values are:
+#  - query_str: pandas query on results/lineages/spike_haplotypes_w_freqs_collapsed.tsv;
+#    use null for no filtering
+#  - nextstrain_prot_titers_tree_config: configuration to nextstrain-prot-titers tree except for alignment,
+#    metadata, auspice_json, and results_subdir (which are built by pipeline)
+trees:
+  all:
+    query_str: "(ambiguous_sites_or_premature_stop == 'no')"
+    nextstrain_prot_titers_tree_config: &nextstrain_prot_titers_tree_config_default
+      site_numbering_map: data/site_numbering_map.tsv
+      outgroup: data/Wuhan-Hu-1_spike.fa
+      titers: null
+      color_by_metadata:
+        max_monthly_frequency: {scale_type: viridis_log}
+        max_monthly_frequency_covspectrum: {scale_type: viridis_log}
+        max_monthly_frequency_genbank: {scale_type: viridis_log}
+        total_mutations: {scale_type: viridis_linear}
+        total_substitutions: {scale_type: viridis_linear}
+        total_counts: {scale_type: viridis_log}
+        total_counts_covspectrum: {scale_type: viridis_log}
+        total_counts_genbank: {scale_type: viridis_log}
+        ambiguous_sites_or_premature_stop: {}
+        lanl_genbank_concordance: {}
+        in_library: {}
+      metadata_columns:
+        - equivalent_lineages
+        - median_month
+        - median_month_covspectrum
+        - median_month_genbank
+        - lanl_genbank_differences
+        - insertions
+      display_defaults:
+        color_by: max_monthly_frequency
+        distance_measure: div
+      addtl_export_args:
+        title: Spike proteins from all SARS-CoV-2 Pango lineages
+        maintainers: "Jesse Bloom <https://jbloomlab.org/>"
+        build-url: "https://github.com/jbloomlab/SARS2-spike-pango"
+  max-monthly-percent-0.1:
+    query_str: "(ambiguous_sites_or_premature_stop == 'no') and (((max_monthly_frequency >= 0.001) and (total_counts > 2) and (lanl_genbank_concordance != 'genbank_only')) or (in_library == 'yes'))"
+    nextstrain_prot_titers_tree_config:
+      <<: *nextstrain_prot_titers_tree_config_default
+      addtl_export_args:
+        title: Spike proteins from SARS-CoV-2 Pango lineages with a max monthly frequency of at least 0.1%
+        maintainers: "Jesse Bloom <https://jbloomlab.org/>"
+        build-url: "https://github.com/jbloomlab/SARS2-spike-pango"
+  max-monthly-percent-0.25:
+    query_str: "(ambiguous_sites_or_premature_stop == 'no') and (((max_monthly_frequency >= 0.0025) and (total_counts > 6) and (lanl_genbank_concordance != 'genbank_only')) or (in_library == 'yes'))"
+    nextstrain_prot_titers_tree_config:
+      <<: *nextstrain_prot_titers_tree_config_default
+      addtl_export_args:
+        title: Spike proteins from SARS-CoV-2 Pango lineages with a max monthly frequency of at least 0.25%
+        maintainers: "Jesse Bloom <https://jbloomlab.org/>"
+        build-url: "https://github.com/jbloomlab/SARS2-spike-pango"
+  max-monthly-percent-1:
+    query_str: "(ambiguous_sites_or_premature_stop == 'no') and (((max_monthly_frequency >= 0.01) and (total_counts > 20) and (lanl_genbank_concordance != 'genbank_only'))  or (in_library == 'yes'))"
+    nextstrain_prot_titers_tree_config:
+      <<: *nextstrain_prot_titers_tree_config_default
+      addtl_export_args:
+        title: Spike proteins from SARS-CoV-2 Pango lineages with a max monthly frequency of at least 1%
+        maintainers: "Jesse Bloom <https://jbloomlab.org/>"
+        build-url: "https://github.com/jbloomlab/SARS2-spike-pango"
+  in-library:
+    query_str: "in_library == 'yes'"
+    nextstrain_prot_titers_tree_config:
+      <<: *nextstrain_prot_titers_tree_config_default
+      addtl_export_args:
+        title: Spike proteins from SARS-CoV-2 Pango lineages in experimental library
+        maintainers: "Jesse Bloom <https://jbloomlab.org/>"
+        build-url: "https://github.com/jbloomlab/SARS2-spike-pango"

@@ -1,0 +1,8 @@
+CovSpectrum frequency parsing summary
+======================================
+Total lineages: 5332
+Total months: 76
+Date range: 2020-01 to 2026-04
+Total sequence counts: 9287623
+Rows dropped (missing date): 1651
+Rows dropped (missing lineage): 2076

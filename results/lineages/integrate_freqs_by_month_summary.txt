@@ -1,0 +1,12 @@
+Genbank: 30207 rows, 5175 lineages
+CovSpectrum: 34303 rows, 5332 lineages
+Merged: 34700 rows
+Wrote 34700 rows to results/lineages/freqs_by_month.tsv
+
+Summary:
+  Total lineages: 5365
+  Total months: 77
+  Date range: 2019-12 to 2026-04
+  Rows with data in both sources: 29810
+  Rows with Genbank only: 397
+  Rows with CovSpectrum only: 4493

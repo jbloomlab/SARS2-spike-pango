@@ -1,0 +1,3 @@
+[submodule "nextstrain-prot-titers-tree"]
+	path = nextstrain-prot-titers-tree
+	url = https://github.com/jbloomlab/nextstrain-prot-titers-tree

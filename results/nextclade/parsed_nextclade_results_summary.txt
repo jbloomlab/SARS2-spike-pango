@@ -1,0 +1,29 @@
+Total TSV rows: 9,203,549
+Dropped (errors or failed CDS): 4,072
+Parsed entries: 9,199,477
+Unique pango lineages: 4,440
+Unique Nextstrain clades: 59
+
+Top 10 pango lineages:
+  AY.4: 864,944
+  BA.2: 803,177
+  BA.1.1: 705,323
+  B.1.1.7: 650,004
+  BA.1: 320,314
+  AY.103: 249,543
+  AY.44: 216,230
+  BA.1.17.2: 184,418
+  BA.2.12.1: 167,509
+  AY.43: 144,193
+
+Top 10 Nextstrain clades:
+  21J: 2,822,776
+  21K: 1,650,454
+  21L: 1,131,293
+  22B: 764,925
+  20I: 664,531
+  22E: 204,766
+  22C: 178,526
+  23A: 173,112
+  21I: 155,118
+  20A: 135,320

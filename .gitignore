@@ -1,0 +1,13 @@
+.*
+!.git*
+*.out
+_*
+
+results/**
+!results/**/
+
+!results/lineages/*.tsv
+results/lineages/spike_haplotypes.tsv
+
+!results/**/timestamp.txt
+!results/**/*_summary.txt

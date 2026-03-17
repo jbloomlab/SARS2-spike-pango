@@ -1,0 +1,12 @@
+LANL spike haplotype parsing summary
+=====================================
+Total consensus lines in LANL file: 5061
+Skipped lineages (invalid name): 1
+Total lineages parsed: 5060
+Lineages with no mutations (identical to reference): 80
+Lineages with substitutions only: 1183
+Lineages with deletions: 3792
+Lineages with insertions: 1596
+
+Skipped lineages:
+  name='None': mutations=[H69-,V70-,P217L,A570D,D614G,P681H,D1118H]

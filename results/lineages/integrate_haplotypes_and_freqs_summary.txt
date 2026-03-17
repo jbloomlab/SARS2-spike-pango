@@ -1,0 +1,14 @@
+Haplotypes: 5649 lineages
+Frequencies: 34700 rows, 5365 lineages
+
+Dropped 333 lineages with no frequency counts in either source
+  Concordance of dropped lineages:
+    lanl_only: 333
+
+Uncollapsed: 5316 lineages
+Wrote uncollapsed to results/lineages/spike_haplotypes_w_freqs_uncollapsed.tsv
+
+Collapsing: 5316 lineages -> 2465 unique spikes
+Collapsed: 2465 unique spikes
+  With equivalent lineages: 421
+Wrote collapsed to results/lineages/spike_haplotypes_w_freqs_collapsed.tsv

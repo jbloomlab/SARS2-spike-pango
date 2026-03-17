@@ -1,0 +1,250 @@
+======================================================================
+INVALID PANGO LINEAGE CLEANUP
+======================================================================
+Nullifying 102,861 invalid genbank Pango lineage values:
+  unclassifiable: 102,861
+No invalid nextclade Pango lineage values found.
+Nullifying 132,094 invalid usher Pango lineage values:
+  XBB.1.5_17124: 90,634
+  BQ.1_17039: 12,877
+  XBB.1_27915T: 5,480
+  BA.2_22792_27945: 3,220
+  BA.5_dropout: 2,614
+  BA.1_dropout: 2,435
+  BF.24_alt: 2,229
+  BA.2_21765_no22792: 1,780
+  XFG.3_10615: 1,557
+  BA.2_10507_18744: 1,366
+
+======================================================================
+INPUT FILE DESCRIPTIONS
+======================================================================
+Genbank metadata: 9,203,549 rows
+Nextclade results: 9,199,477 rows
+UShER metadata: 8,357,668 rows
+Merged output: 9,203,549 rows
+
+======================================================================
+ACCESSION OVERLAP
+======================================================================
+
+genbank vs nextclade:
+  Shared accessions: 9,199,477
+  Only in genbank: 4,072
+    Examples: LC522350.1, LC523807.1, LC523808.1, LC523809.1, LC570964.1
+  Only in nextclade: 0
+
+genbank vs usher:
+  Shared accessions: 8,357,668
+  Only in genbank: 845,881
+    Examples: BS001168.1, BS001183.1, BS001189.1, BS001229.1, BS001488.1
+  Only in usher: 0
+
+nextclade vs usher:
+  Shared accessions: 8,357,665
+  Only in nextclade: 841,812
+    Examples: BS001168.1, BS001183.1, BS001189.1, BS001229.1, BS001488.1
+  Only in usher: 3
+    Examples: MZ313128.1, PG340928.1, PG340963.1
+
+======================================================================
+COLUMN SUMMARIES
+======================================================================
+
+--- date_genbank ---
+  Non-null: 9,200,548, Null: 3,001
+  Range: 2019-09-12 to 2027-07-29
+  Median: 2021-12-26
+  0.01th percentile: 2020-01-01
+  0.1th percentile: 2020-01-01
+  1th percentile: 2020-03-29
+  10th percentile: 2021-03-22
+  50th percentile: 2021-12-26
+  90th percentile: 2022-11-27
+  99th percentile: 2024-10-28
+  99.9th percentile: 2025-11-19
+  99.99th percentile: 2026-02-22
+
+--- date_month_genbank ---
+  Non-null: 9,130,870, Null: 72,679
+  Range: 2019-09 to 2027-08
+  Median: 2022-01
+  0.01th percentile: 2020-02
+  0.1th percentile: 2020-03
+  1th percentile: 2020-06
+  10th percentile: 2021-04
+  50th percentile: 2022-01
+  90th percentile: 2022-12
+  99th percentile: 2024-11
+  99.9th percentile: 2025-12
+  99.99th percentile: 2026-03
+
+--- date_usher ---
+  Non-null: 8,357,668, Null: 845,881
+  Range: 1905-07-16 to 2026-03-26
+  Median: 2021-12-15
+  0.01th percentile: 2020-01-01
+  0.1th percentile: 2020-03-12
+  1th percentile: 2020-05-20
+  10th percentile: 2021-03-21
+  50th percentile: 2021-12-15
+  90th percentile: 2022-12-08
+  99th percentile: 2024-11-21
+  99.9th percentile: 2025-11-26
+  99.99th percentile: 2026-02-20
+
+--- date_month_usher ---
+  Non-null: 8,348,976, Null: 854,573
+  Range: 1905-08 to 2026-04
+  Median: 2021-12
+  0.01th percentile: 2020-03
+  0.1th percentile: 2020-03
+  1th percentile: 2020-06
+  10th percentile: 2021-04
+  50th percentile: 2021-12
+  90th percentile: 2022-12
+  99th percentile: 2024-12
+  99.9th percentile: 2025-12
+  99.99th percentile: 2026-03
+
+--- geographic_region ---
+  Unique values: 6
+  Null: 2,368
+  Top 5 values:
+    Europe: 5,135,267
+    North America: 3,891,119
+    Asia: 76,654
+    South America: 36,958
+    Oceania: 31,247
+
+--- country ---
+  Unique values: 140
+  Null: 846,854
+  Top 5 values:
+    USA: 3,504,651
+    England: 2,377,115
+    Germany: 762,691
+    Denmark: 505,542
+    Scotland: 365,815
+
+--- pango_lineage_genbank ---
+  Unique values: 5,315
+  Null: 102,862
+  Top 5 values:
+    AY.4: 838,002
+    BA.2: 801,510
+    BA.1.1: 691,474
+    B.1.1.7: 646,740
+    BA.1: 319,700
+
+--- pango_lineage_nextclade ---
+  Unique values: 4,440
+  Null: 4,072
+  Top 5 values:
+    AY.4: 864,944
+    BA.2: 803,177
+    BA.1.1: 705,323
+    B.1.1.7: 650,004
+    BA.1: 320,314
+
+--- pango_lineage_usher ---
+  Unique values: 5,374
+  Null: 977,975
+  Top 5 values:
+    AY.4: 828,478
+    BA.2: 714,747
+    B.1.1.7: 639,028
+    BA.1.1: 464,383
+    AY.103: 243,121
+
+--- nextstrain_clade_nextclade ---
+  Unique values: 59
+  Null: 4,072
+  Top 5 values:
+    21J: 2,822,776
+    21K: 1,650,454
+    21L: 1,131,293
+    22B: 764,925
+    20I: 664,531
+
+--- nextstrain_clade_usher ---
+  Unique values: 52
+  Null: 845,881
+  Top 5 values:
+    21J (Delta): 2,732,185
+    21K (BA.1): 1,128,300
+    21L (BA.2): 1,026,285
+    22B (BA.5): 745,221
+    20I (Alpha): 646,110
+
+--- nextclade_qc_score ---
+  Non-null: 9,199,477, Null: 4,072
+  Range: 0 to 5.076e+05
+  Median: 1.178
+  0.01th percentile: 0
+  0.1th percentile: 0
+  1th percentile: 0
+  10th percentile: 0
+  50th percentile: 1.178
+  90th percentile: 46.16
+  99th percentile: 1039
+  99.9th percentile: 2813
+  99.99th percentile: 9008
+
+--- n_missing_sites ---
+  Non-null: 9,199,477, Null: 4,072
+  Range: 0 to 1274
+  Median: 0
+  0.01th percentile: 0
+  0.1th percentile: 0
+  1th percentile: 0
+  10th percentile: 0
+  50th percentile: 0
+  90th percentile: 116
+  99th percentile: 513
+  99.9th percentile: 1205
+  99.99th percentile: 1271
+
+--- aligned_spike ---
+  Non-null: 9,199,477
+  Null: 4,072
+
+======================================================================
+CROSS-SOURCE COMPARISONS
+======================================================================
+
+pango_lineage_genbank vs pango_lineage_nextclade:
+  Both non-null and equal: 8,703,354
+  Both non-null and different: 397,319
+  One null: 98,818
+  Both null: 4,058
+
+pango_lineage_genbank vs pango_lineage_usher:
+  Both non-null and equal: 8,022,297
+  Both non-null and different: 191,069
+  One null: 899,529
+  Both null: 90,654
+
+pango_lineage_nextclade vs pango_lineage_usher:
+  Both non-null and equal: 7,795,115
+  Both non-null and different: 430,456
+  One null: 973,909
+  Both null: 4,069
+
+nextstrain_clade_nextclade vs nextstrain_clade_usher:
+  Both non-null and equal: 549,520
+  Both non-null and different: 7,808,145
+  One null: 841,815
+  Both null: 4,069
+
+date_genbank vs date_usher:
+  Both non-null and equal: 8,302,426
+  Both non-null and different: 53,660
+  One null: 846,044
+  Both null: 1,419
+
+date_month_genbank vs date_month_usher:
+  Both non-null and equal: 8,295,316
+  Both non-null and different: 0
+  One null: 889,214
+  Both null: 19,019

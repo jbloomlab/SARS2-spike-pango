@@ -1,0 +1,58 @@
+Total sequences (FASTA): 9,203,549
+Total JSONL records: 9,203,549
+Unique dates: 2,367
+Unique geographic regions: 6
+Unique geographic locations: 4,716
+Unique pango lineages: 5,316
+Date range: 2019-09-12 to 2027-07-29
+
+Top 10 geographic region values:
+  Europe: 5,135,267
+  North America: 3,891,119
+  Asia: 76,654
+  South America: 36,958
+  Oceania: 31,247
+  Africa: 29,936
+  (null: 2,368)
+
+Top 10 geographic location values:
+  United Kingdom:England: 2,685,099
+  USA: 795,401
+  United Kingdom:Scotland: 407,031
+  USA: California: 368,773
+  United Kingdom:Wales: 271,003
+  Germany:Europe/Germany/North Rhine-Westphalia: 182,334
+  USA: Massachusetts: 175,826
+  Denmark:Hovedstaden: 167,989
+  Germany:Europe/Germany/Baden-Wurttemberg: 160,074
+  USA: Florida: 158,973
+  (null: 2,373)
+
+Top 10 pango lineage values:
+  AY.4: 838,002
+  BA.2: 801,510
+  BA.1.1: 691,474
+  B.1.1.7: 646,740
+  BA.1: 319,700
+  AY.103: 249,337
+  AY.44: 215,762
+  BA.1.17.2: 181,110
+  BA.2.12.1: 175,696
+  AY.3: 143,219
+  (null: 1)
+
+Null counts: date=3,001, region=2,368, location=2,373, pango=1
+
+Date percentiles (from 9,079,813 fully-resolved dates):
+  1th: 2020-06-08
+  10th: 2021-03-30
+  25th: 2021-08-27
+  50th: 2021-12-27
+  75th: 2022-04-13
+  90th: 2022-11-28
+  99th: 2024-10-29
+
+Accession cross-check:
+  In both JSONL and FASTA: 9,203,549
+  JSONL-only: 0
+  FASTA-only: 0

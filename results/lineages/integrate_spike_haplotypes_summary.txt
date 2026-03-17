@@ -1,0 +1,19 @@
+Genbank: 5175 lineages
+LANL: 5060 lineages
+Merged: 5649 lineages
+  In both sources: 4586
+  Genbank only: 589
+  LANL only: 474
+  Equal: 3894
+  Differ: 692
+
+Annotation 'in_library' from data/library_lineages.tsv:
+  yes: 58, no: 5591
+
+Wrote 5649 lineages to results/lineages/spike_haplotypes.tsv
+
+Concordance summary:
+  equal: 3894
+  differ: 692
+  genbank_only: 589
+  lanl_only: 474

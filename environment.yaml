@@ -1,0 +1,20 @@
+name: SARS2-spike-pango
+
+channels:
+  - conda-forge
+  - bioconda
+
+dependencies:
+  - altair=6.0
+  - biopython=1.86
+  - black
+  - marimo=0.21
+  - ncbi-datasets-cli=18.21
+  - nextclade=3.20
+  - pandas=2.3
+  - pigz=2.8
+  - pip
+  - python=3.13
+  - snakefmt
+  - snakemake=9.19
+  - ruff
